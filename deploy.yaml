@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: carv-deployment
+  labels:
+    app: carv
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: carv
+  template:
+    metadata:
+      labels:
+        app: carv
+    spec:
+      containers:
+      - name: carv
+        image: 637423283169.dkr.ecr.us-east-1.amazonaws.com/carv:12
+        ports:
+        - containerPort: 80
